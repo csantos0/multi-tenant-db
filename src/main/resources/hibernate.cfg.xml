@@ -15,9 +15,9 @@
 		<!-- Database connection settings -->		
 		<property name="hibernate.current_session_context_class">thread</property>		
 		
-		<property name="hibernate.multiTenancy">SCHEMA</property>
+		<property name="hibernate.multiTenancy">DATABASE</property>
 	    <property name="hibernate.tenant_identifier_resolver">br.com.synchro.hibernate.tenancy.SchemaResolver</property>
-		<property name="hibernate.multi_tenant_connection_provider">br.com.synchro.hibernate.tenancy.MultiTenantConnectionProviderImpl</property> 
+		<property name="hibernate.multi_tenant_connection_provider">br.com.synchro.hibernate.tenancy.DatabaseMultiTenantConnectionProvider</property>	
 		                                                           
 		<!-- Echo all executed SQL to stdout -->
 		<property name="show_sql">true</property>
