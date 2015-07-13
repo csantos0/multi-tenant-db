@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+	
+		<!-- Hibernate seleciona o dialeto automaticamente de acordo com a conexao -->
+		<!-- <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property> -->
+		
+		<!-- Com o multi tenancy nao e necessario setar o datasource, pois vai ser carregado pela implementacao do MultiTenantConnectionProviderImpl-->		
+		<!-- <property name="hibernate.connection.datasource">java:comp/env/jdbc/tenancygeralDS</property>	 -->
+	
+		<!-- Database connection settings -->		
+		<property name="hibernate.current_session_context_class">thread</property>		
+		
+		<property name="hibernate.multiTenancy">SCHEMA</property>
+	    <property name="hibernate.tenant_identifier_resolver">br.com.synchro.hibernate.tenancy.SchemaResolver</property>
+		<property name="hibernate.multi_tenant_connection_provider">br.com.synchro.hibernate.tenancy.MultiTenantConnectionProviderImpl</property> 
+		                                                           
+		<!-- Echo all executed SQL to stdout -->
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+		<property name="use_sql_comments">false</property>
+
+		<mapping class="br.com.synchro.domain.User" />
+		<mapping class="br.com.synchro.domain.Organization" />		
+		<mapping class="br.com.synchro.domain.OrgTenant" />
+		
+		<mapping class="br.com.synchro.domain.Usuario" />		
+		<mapping class="br.com.synchro.domain.ModeloDof"/>
+		
+			
+	</session-factory>
+</hibernate-configuration>
