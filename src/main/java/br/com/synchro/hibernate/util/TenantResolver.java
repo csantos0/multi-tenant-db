@@ -6,6 +6,8 @@ package br.com.synchro.hibernate.util;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import br.com.synchro.jsf.FacesUtil;
 
 /**
@@ -14,15 +16,15 @@ import br.com.synchro.jsf.FacesUtil;
  */
 public class TenantResolver {
 
-    private static Map<String, String> map;
+    private static Logger logger = Logger.getLogger(TenantResolver.class);
+
+    private static Map<String, String> map = new HashMap<String, String>();
 
     /**
      * @param tenant
      */
     public static void begin(final String tenant) {
-	if (map == null) {
-	    map = new HashMap<String, String>();
-	}
+	logger.info("Tenant Identifier: " + tenant);
 	map.put(FacesUtil.getSessionId(), tenant);
     }
 
@@ -30,18 +32,18 @@ public class TenantResolver {
      * 
      */
     public static void end() {
-	map = null;
+	map.remove(FacesUtil.getSessionId());
     }
 
     /**
-     * @param sessionId
      * @return current tenancy
      */
-    public static String get(final String sessionId) {
-	if (map == null) {
-	    return TenantSchema.TENANCYGERAL.name();
-	}
-	return map.get(sessionId);
-    }
 
+    public static String get() {
+	final String var1 = map.get(FacesUtil.getSessionId());
+	if (var1 == null) {
+	    return TenantDatabase.GENERAL.name();
+	}
+	return var1;
+    }
 }

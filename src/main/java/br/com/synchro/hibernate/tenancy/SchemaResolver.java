@@ -10,7 +10,6 @@ package br.com.synchro.hibernate.tenancy;
 import org.hibernate.context.spi.CurrentTenantIdentifierResolver;
 
 import br.com.synchro.hibernate.util.TenantResolver;
-import br.com.synchro.jsf.FacesUtil;
 
 /**
  * @author cvs
@@ -20,7 +19,8 @@ public class SchemaResolver implements CurrentTenantIdentifierResolver {
 
     @Override
     public String resolveCurrentTenantIdentifier() {
-	return TenantResolver.get(FacesUtil.getSessionId());
+	// return TenantResolver.get(FacesUtil.getSessionId());
+	return TenantResolver.get();
     }
 
     @Override

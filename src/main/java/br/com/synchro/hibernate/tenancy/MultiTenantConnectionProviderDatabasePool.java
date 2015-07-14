@@ -18,8 +18,12 @@ public class MultiTenantConnectionProviderDatabasePool implements MultiTenantCon
 
     private static final long serialVersionUID = 1L;
 
-    private final ConnectionProvider connectionProvider = new CustomTenantConnectionProvider(
-	    CustomCurrentTenantIdentifierResolver.DEFULT_TENANT_ID);
+    private final ConnectionProvider connectionProvider = new CustomTenantConnectionProvider(null);
+
+    /*
+     * private final ConnectionProvider connectionProvider = new CustomTenantConnectionProvider(
+     * CustomCurrentTenantIdentifierResolver.DEFULT_TENANT_ID);
+     */
 
     private static Logger logger = Logger.getLogger(MultiTenantConnectionProviderDatabasePool.class);
 

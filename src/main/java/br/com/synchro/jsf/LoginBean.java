@@ -8,7 +8,6 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
-import br.com.synchro.hibernate.util.TenantResolver;
 import br.com.synchro.service.LoginService;
 import br.com.synchro.service.LoginServiceImpl;
 
@@ -53,8 +52,8 @@ public class LoginBean implements Serializable {
      * @return nav
      */
     public String logout() {
+	this.loginService.doLogout();
 	FacesUtil.getSession().invalidate();
-	TenantResolver.end();
 	return "login";
     }
 

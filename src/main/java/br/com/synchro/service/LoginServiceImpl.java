@@ -37,8 +37,15 @@ public class LoginServiceImpl implements LoginService {
 	}
 	final String tenantName = this.orgTenantDao.getTenantFromOrg(user.getOrganization().getId());
 	TenantResolver.begin(tenantName);
-	// TenantResolver.begin(TenantSchema.tenancy2.name());
 	return true;
     }
 
+    /*
+     * (non-Javadoc)
+     * @see br.com.synchro.service.LoginService#doLogout()
+     */
+    @Override
+    public void doLogout() {
+	TenantResolver.end();
+    }
 }

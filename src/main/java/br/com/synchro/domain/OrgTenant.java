@@ -4,12 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import br.com.synchro.hibernate.util.TenantSchema;
 
 /**
  * @author cvs
@@ -25,8 +21,7 @@ public class OrgTenant implements Serializable {
     private Integer orgId;
 
     @Column(name = "TEN_TENANT_DS")
-    @Enumerated(EnumType.STRING)
-    private TenantSchema tenantSchema;
+    private String tenantName;
 
     // private String tenantName;
 
@@ -38,10 +33,10 @@ public class OrgTenant implements Serializable {
     }
 
     /**
-     * @return the tenantSchema
+     * @return the tenantName
      */
-    public TenantSchema getTenantSchema() {
-	return tenantSchema;
+    public String getTenantName() {
+	return tenantName;
     }
 
     /**
@@ -53,11 +48,11 @@ public class OrgTenant implements Serializable {
     }
 
     /**
-     * @param pTenantSchema
-     *            the tenantSchema to set
+     * @param pTenantName
+     *            the tenantName to set
      */
-    public void setTenantSchema(final TenantSchema pTenantSchema) {
-	tenantSchema = pTenantSchema;
+    public void setTenantName(final String pTenantName) {
+	tenantName = pTenantName;
     }
 
     /*

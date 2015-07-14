@@ -17,6 +17,6 @@ public class OrgTenantDaoImpl implements OrgTenantDao {
 	final OrgTenant orgTenantObj = (OrgTenant) session.createCriteria(OrgTenant.class).add(Restrictions.eq("orgId", orgId))
 		.uniqueResult();
 	session.close();
-	return orgTenantObj.getTenantSchema().toString();
+	return orgTenantObj.getTenantName();
     }
 }

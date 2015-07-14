@@ -12,4 +12,9 @@ public interface LoginService {
      * @return true if valid user, false otherwise
      */
     public boolean doLogin(final String user, final String password);
+
+    /**
+     * logout
+     */
+    public void doLogout();
 }
