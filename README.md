@@ -20,18 +20,21 @@ Proof-of-Concept with the goal to provide a Multi Tenant Architecture using Hibe
 
 ## Build and deploy
 
-1. Create some Oracle databases (different hosts) with some schemas.
+1. Create some Oracle databases (different hosts) with some schemas. Be aware to select one of them to be the MAIN database/schema.
 
-2. Open the file /scripts/database.sql, copy and run the commands for each schema created earlier.
+2. Clone this project to your local git.
 
-3. Edit the file /src/main/resources/multi-tenant.properties providing the correct information for each tenant to be created (database/schema data).
+3. Open the file /scripts/database.sql, copy and run the commands marked with MAIN for the MAIN database/schema.
 
-4. Clone this project to your local git.
+4. Still in the file /scripts/database.sql, for each tenant database/schema copy and run the commands marked with TENANT. 
 
-5. Open a terminal and follow one of these approaches:
+5. Edit the file /src/main/resources/multi-tenant.properties providing the correct information for each tenant and main to be created (database/schema data).
+
+6. Open a terminal and follow one of these approaches:
  i. Run "mvn clean install" to generate the WAR package to be deployed and copy to the application server;
+ 
  ii. If you have a tomcat installation, change the tomcat settings for your configuration in /pom.xml and run "clean install tomcat:deploy" (Tomcat must be started);
-6. Access, http://app-server-host:app-server-port/multi-tenant-db.
-7. Try out with multiple users, organizations and tenants.
+ 
+7. Access, http://app-server-host:app-server-port/multi-tenant-db.
 
-
+8. Try out with multiple users, organizations and tenants.
