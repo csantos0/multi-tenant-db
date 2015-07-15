@@ -1,16 +1,17 @@
-# Multi Tenant Architecture - Database Approach
+# Multi Tenant Architecture 
+## Database Approach
 
-## Objective
+### Objective
 
 Proof-of-Concept with the goal to provide a Multi Tenant Architecture using Hibernate.
 
-## Use Cases Scenarios
+### Use Cases Scenarios
 
 1. Create a Custom Connection Pool for each tenant and make them available to hibernate;
 2. Users log in the application and depending of their Organization the correct tenant will be loaded and select a suitable connection.
 3. Create an operation (ex. some object query) to demonstrate the diferent results since there is a different database/schema for each user. 
 
-## Tech Stack
+### Tech Stack
 
 * Hibernate 4.3.10.FINAL
 * Apache DBCP 1.4
@@ -18,7 +19,7 @@ Proof-of-Concept with the goal to provide a Multi Tenant Architecture using Hibe
 * Servlet 2.5
 * Oracle (Check if you have Oracle Driver in Maven repo, otherwise it will be necessary to intall)
 
-## Build and deploy
+### Build and deploy
 
 1. Create some Oracle databases (different hosts) with some schemas. Be aware to select one of them to be the MAIN database/schema.
 
@@ -40,6 +41,6 @@ Proof-of-Concept with the goal to provide a Multi Tenant Architecture using Hibe
 
 8. Try out with multiple users, organizations and tenants.
 
-### More Information
+#### More Information
 
 See javadocs for further information.
