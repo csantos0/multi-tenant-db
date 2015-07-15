@@ -31,6 +31,7 @@ Proof-of-Concept with the goal to provide a Multi Tenant Architecture using Hibe
 5. Edit the file /src/main/resources/multi-tenant.properties providing the correct information for each tenant and main to be created (database/schema data).
 
 6. Open a terminal and follow one of these approaches:
+
  i. Run "mvn clean install" to generate the WAR package to be deployed and copy to the application server;
  
  ii. If you have a tomcat installation, change the tomcat settings for your configuration in /pom.xml and run "clean install tomcat:deploy" (Tomcat must be started);
