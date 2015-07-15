@@ -39,3 +39,7 @@ Proof-of-Concept with the goal to provide a Multi Tenant Architecture using Hibe
 7. Access, http://app-server-host:app-server-port/multi-tenant-db.
 
 8. Try out with multiple users, organizations and tenants.
+
+### More Information
+
+See javadocs for further information.
