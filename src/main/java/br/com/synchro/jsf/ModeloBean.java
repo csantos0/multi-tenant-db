@@ -6,10 +6,9 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import org.hibernate.Session;
-
 import br.com.synchro.domain.ModeloDof;
-import br.com.synchro.hibernate.util.HibernateUtil;
+import br.com.synchro.service.ModeloService;
+import br.com.synchro.service.ModeloServiceImpl;
 
 /**
  * @author cvs
@@ -21,9 +20,18 @@ public class ModeloBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    private ModeloService modeloService;
+
     private String modelos;
 
     private List<ModeloDof> listModelo;
+
+    /**
+     * 
+     */
+    public ModeloBean() {
+	this.modeloService = new ModeloServiceImpl();
+    }
 
     /**
      * @return the listModelo
@@ -42,16 +50,8 @@ public class ModeloBean implements Serializable {
     /**
      * 
      */
-    @SuppressWarnings("unchecked")
     public void listarModelos() {
-	final Session session = HibernateUtil.getSession();
-	this.listModelo = session.createCriteria(ModeloDof.class).list();
-	session.close();
-
-	/*
-	 * this.modelos = ""; for (final ModeloDof modeloDof : list) { this.modelos += modeloDof.getMdofCodigo() + " - " + modeloDof.getTitulo() +
-	 * " ::::::: "; }
-	 */
+	this.listModelo = this.modeloService.listarModelosDof();
     }
 
     /**

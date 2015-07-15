@@ -8,6 +8,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
+import br.com.synchro.domain.User;
 import br.com.synchro.service.LoginService;
 import br.com.synchro.service.LoginServiceImpl;
 
@@ -24,12 +25,20 @@ public class LoginBean implements Serializable {
     private String pwd;
     private String user;
     private LoginService loginService;
+    private String orgId;
 
     /**
      * 
      */
     public LoginBean() {
 	this.loginService = new LoginServiceImpl();
+    }
+
+    /**
+     * @return the orgId
+     */
+    public String getOrgId() {
+	return orgId;
     }
 
     /**
@@ -58,6 +67,14 @@ public class LoginBean implements Serializable {
     }
 
     /**
+     * @param pOrgId
+     *            the orgId to set
+     */
+    public void setOrgId(final String pOrgId) {
+	orgId = pOrgId;
+    }
+
+    /**
      * @param pPwd
      *            the pwd to set
      */
@@ -77,11 +94,12 @@ public class LoginBean implements Serializable {
      * @return nav
      */
     public String validateUsernamePassword() {
-	final boolean valid = this.loginService.doLogin(user, pwd);
+	final User userRes = this.loginService.doLogin(user, pwd);
 
-	if (valid) {
+	if (user != null) {
 	    final HttpSession session = FacesUtil.getSession();
 	    session.setAttribute("username", user);
+	    this.setOrgId(userRes.getOrganization().getId() + "");
 	    return "admin";
 	}
 	FacesContext.getCurrentInstance().addMessage(

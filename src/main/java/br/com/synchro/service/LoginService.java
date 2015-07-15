@@ -1,5 +1,7 @@
 package br.com.synchro.service;
 
+import br.com.synchro.domain.User;
+
 /**
  * @author cvs
  * @create Jul 8, 2015
@@ -11,7 +13,7 @@ public interface LoginService {
      * @param password
      * @return true if valid user, false otherwise
      */
-    public boolean doLogin(final String user, final String password);
+    public User doLogin(final String user, final String password);
 
     /**
      * logout

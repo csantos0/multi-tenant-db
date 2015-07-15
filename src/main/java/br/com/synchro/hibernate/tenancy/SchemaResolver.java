@@ -19,7 +19,6 @@ public class SchemaResolver implements CurrentTenantIdentifierResolver {
 
     @Override
     public String resolveCurrentTenantIdentifier() {
-	// return TenantResolver.get(FacesUtil.getSessionId());
 	return TenantResolver.get();
     }
 
