@@ -7,10 +7,13 @@ import br.com.synchro.domain.ModeloDof;
 /**
  * @author cvs
  * @create Jul 15, 2015
+ * 
+ *         Simple Service for Modelo operations
  */
 public interface ModeloService {
 
     /**
+     * List all Modelo DOFs found
      * 
      * @return lista de modelos DOF
      */

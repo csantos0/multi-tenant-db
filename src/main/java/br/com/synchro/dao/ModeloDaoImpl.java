@@ -10,6 +10,8 @@ import br.com.synchro.hibernate.util.HibernateUtil;
 /**
  * @author cvs
  * @create Jul 15, 2015
+ * 
+ *         Simple DAO implementation for Modelo Domain
  */
 public class ModeloDaoImpl implements ModeloDao {
 

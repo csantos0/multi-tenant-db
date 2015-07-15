@@ -12,6 +12,8 @@ import br.com.synchro.hibernate.util.TenantConnectionData;
 /**
  * @author cvs
  * @create Jul 13, 2015
+ * 
+ *         Custom Hibernate Connection Provider that creates a new Datasource based on the information set for multi tenant connection
  */
 public class CustomTenantConnectionProvider implements ConnectionProvider {
 
@@ -22,7 +24,10 @@ public class CustomTenantConnectionProvider implements ConnectionProvider {
     private final BasicDataSource basicDataSource;
 
     /**
+     * Creates a new Data Source to be held by hibernate
+     * 
      * @param tcd
+     *            Metadata information to fill required attributes for the new Datasource
      * 
      */
     public CustomTenantConnectionProvider(final TenantConnectionData tcd) {

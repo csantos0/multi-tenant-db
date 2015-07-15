@@ -10,6 +10,8 @@ import javax.persistence.Table;
 /**
  * @author cvs
  * @create Jul 7, 2015
+ * 
+ *         Organization domain class used by main database
  */
 @Entity
 @Table(name = "ORGANIZACAO")

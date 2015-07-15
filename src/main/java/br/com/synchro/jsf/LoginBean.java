@@ -11,10 +11,13 @@ import javax.servlet.http.HttpSession;
 import br.com.synchro.domain.User;
 import br.com.synchro.service.LoginService;
 import br.com.synchro.service.LoginServiceImpl;
+import br.com.synchro.util.FacesUtil;
 
 /**
  * @author cvs
  * @create Jul 7, 2015
+ * 
+ *         Simple Managed Bean implementation for Login
  */
 @ManagedBean
 @SessionScoped
@@ -23,12 +26,15 @@ public class LoginBean implements Serializable {
     private static final long serialVersionUID = 1094801825228386363L;
 
     private String pwd;
+
     private String user;
+
     private LoginService loginService;
+
     private String orgId;
 
     /**
-     * 
+     * Default Constructor to instantiate attributes
      */
     public LoginBean() {
 	this.loginService = new LoginServiceImpl();
@@ -56,9 +62,9 @@ public class LoginBean implements Serializable {
     }
 
     /**
-     * logout event, invalidate session
+     * Logout event to be called from a button on the screen, aldo invalidates the session
      * 
-     * @return nav
+     * @return nav rule
      */
     public String logout() {
 	this.loginService.doLogout();
@@ -89,9 +95,10 @@ public class LoginBean implements Serializable {
 	this.user = user1;
     }
 
-    // validate login
     /**
-     * @return nav
+     * Login event to be called from a button on the screen. If not succeed a message will be shown
+     * 
+     * @return nav rule
      */
     public String validateUsernamePassword() {
 	final User userRes = this.loginService.doLogin(user, pwd);

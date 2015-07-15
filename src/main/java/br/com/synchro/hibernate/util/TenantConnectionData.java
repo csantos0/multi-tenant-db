@@ -5,12 +5,11 @@ import java.io.Serializable;
 /**
  * @author cvs
  * @create Jul 14, 2015
+ * 
+ *         Domain class used to wrap metadata information to serve the connection provider
  */
 public class TenantConnectionData implements Serializable {
 
-    /**
-     * 
-     */
     private static final long serialVersionUID = 1L;
 
     private String tenantName;

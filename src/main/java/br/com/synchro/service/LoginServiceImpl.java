@@ -12,6 +12,8 @@ import br.com.synchro.hibernate.util.TenantResolver;
 /**
  * @author cvs
  * @create Jul 8, 2015
+ * 
+ *         Simple Service implementation for Login operations
  */
 public class LoginServiceImpl implements LoginService, Serializable {
 
@@ -22,7 +24,7 @@ public class LoginServiceImpl implements LoginService, Serializable {
     private OrgTenantDao orgTenantDao;
 
     /**
-     * 
+     * Default Constructor to instantiate attributes
      */
     public LoginServiceImpl() {
 	this.userDao = new UserDaoImpl();

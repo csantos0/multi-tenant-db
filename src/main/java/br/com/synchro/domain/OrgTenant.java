@@ -10,6 +10,8 @@ import javax.persistence.Table;
 /**
  * @author cvs
  * @create Jul 8, 2015
+ * 
+ *         OrgTenant domain class used by main database
  */
 @Entity
 @Table(name = "ORG_TENANT")
@@ -22,8 +24,6 @@ public class OrgTenant implements Serializable {
 
     @Column(name = "TEN_TENANT_DS")
     private String tenantName;
-
-    // private String tenantName;
 
     /**
      * @return the orgId

@@ -1,4 +1,4 @@
-package br.com.synchro.domain;
+package br.com.synchro.util;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,15 +9,21 @@ import org.apache.log4j.Logger;
 /**
  * @author cvs
  * @create Jul 14, 2015
+ * 
+ *         Utility class to load a properties file and perform operation with it
  */
 public class PropertiesUtil {
 
     private static Logger logger = Logger.getLogger(PropertiesUtil.class);
 
     /**
+     * Get specific property
+     * 
      * @param filename
+     *            of the property file
      * @param property
-     * @return property
+     *            to be found (key)
+     * @return property value
      */
     public static String getProperty(final String filename, final String property) {
 	final Properties properties = loadPropertiesFile(filename);
@@ -28,9 +34,11 @@ public class PropertiesUtil {
     }
 
     /**
+     * Load a properties file
      * 
      * @param filename
-     * @return properties file loaded
+     *            of the property file
+     * @return properties file loaded if exists, null otherwise
      */
     public static Properties loadPropertiesFile(final String filename) {
 

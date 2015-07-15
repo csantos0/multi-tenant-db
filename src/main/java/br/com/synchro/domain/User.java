@@ -14,6 +14,8 @@ import javax.persistence.Table;
  * 
  * @author cvs
  * @create Jan 16, 2015
+ * 
+ *         User domain class used by main database
  */
 @Entity
 @Table(name = "USUARIO")

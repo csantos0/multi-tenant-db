@@ -1,4 +1,4 @@
-package br.com.synchro.jsf;
+package br.com.synchro.util;
 
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
@@ -7,32 +7,42 @@ import javax.servlet.http.HttpSession;
 /**
  * @author cvs
  * @create Jul 7, 2015
+ * 
+ *         Utility class to JSF context operations
  */
 public class FacesUtil {
 
     /**
-     * @return request
+     * Get Http Request from JSF context
+     * 
+     * @return request object
      */
     public static HttpServletRequest getRequest() {
 	return (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
     }
 
     /**
-     * @return session
+     * Get Http Session from JSF context
+     * 
+     * @return session object
      */
     public static HttpSession getSession() {
 	return (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
     }
 
     /**
-     * @return sessionId
+     * Get SessionId (JSessionId) from JSF context
+     * 
+     * @return sessionId object
      */
     public static String getSessionId() {
 	return getSession().getId();
     }
 
     /**
-     * @return userId
+     * Get User Id from HttpSession
+     * 
+     * @return userId string
      */
     public static String getUserId() {
 	final HttpSession session = getSession();
@@ -43,7 +53,9 @@ public class FacesUtil {
     }
 
     /**
-     * @return username
+     * Get username from HttpSession
+     * 
+     * @return username string
      */
     public static String getUserName() {
 	return getSession().getAttribute("username").toString();

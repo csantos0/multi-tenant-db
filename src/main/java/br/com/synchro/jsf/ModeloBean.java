@@ -13,6 +13,8 @@ import br.com.synchro.service.ModeloServiceImpl;
 /**
  * @author cvs
  * @create Jul 8, 2015
+ * 
+ *         Simple Managed Bean implementation for Modelo DOF
  */
 @ManagedBean
 @SessionScoped
@@ -27,7 +29,7 @@ public class ModeloBean implements Serializable {
     private List<ModeloDof> listModelo;
 
     /**
-     * 
+     * Default Constructor to instantiate attributes
      */
     public ModeloBean() {
 	this.modeloService = new ModeloServiceImpl();
@@ -48,7 +50,7 @@ public class ModeloBean implements Serializable {
     }
 
     /**
-     * 
+     * List all Modelo DOF objects found to be exhibited on the screen
      */
     public void listarModelos() {
 	this.listModelo = this.modeloService.listarModelosDof();

@@ -3,18 +3,25 @@ package br.com.synchro.hibernate.tenancy;
 import java.util.HashMap;
 import java.util.Properties;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.hibernate.engine.jdbc.connections.spi.AbstractMultiTenantConnectionProvider;
 import org.hibernate.engine.jdbc.connections.spi.ConnectionProvider;
 
-import br.com.synchro.domain.PropertiesUtil;
 import br.com.synchro.hibernate.connection.CustomTenantConnectionProvider;
 import br.com.synchro.hibernate.util.TenantConnectionData;
 import br.com.synchro.hibernate.util.TenantDatabase;
+import br.com.synchro.util.PropertiesUtil;
 
 /**
  * @author cvs
  * @create Jul 13, 2015
+ * 
+ *         Connection Provider that is set on hibernate.cfg.xml (hibernate.multi_tenant_connection_provider). Main class for the multi tenant
+ *         architecture, it is responsible to select the actual connection based on the Resolver.
+ * 
+ * @see SchemaResolver
+ * @see CustomTenantConnectionProvider
  */
 public class DatabaseMultiTenantConnectionProvider extends AbstractMultiTenantConnectionProvider {
 
@@ -29,7 +36,7 @@ public class DatabaseMultiTenantConnectionProvider extends AbstractMultiTenantCo
     private Properties properties;
 
     /**
-     * 
+     * Creates a customized tenant pool to hold all connections that will be set on hibernate when started
      */
     public DatabaseMultiTenantConnectionProvider() {
 	logger.info("Initializing a new Custom Connnection Tenants Provider");
@@ -56,7 +63,7 @@ public class DatabaseMultiTenantConnectionProvider extends AbstractMultiTenantCo
 		providerNames += tcd.getTenantName() + ", ";
 	    }
 
-	    logger.info("Connection Provider Tenant Mappings: [" + providerNames.trim() + "]");
+	    logger.info("Connection Provider Tenant Mappings: [" + StringUtils.removeEnd(providerNames.trim(), ",") + "]");
 
 	} else {
 	    logger.error("Connection Provider failed to be created.");
@@ -74,6 +81,7 @@ public class DatabaseMultiTenantConnectionProvider extends AbstractMultiTenantCo
     }
 
     /**
+     * Creates the default connection based on the custom connection provider
      * 
      * @return default connection provider
      */

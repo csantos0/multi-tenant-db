@@ -12,6 +12,7 @@
 		<jsf.version>2.1.21</jsf.version>
 		<hibernate.version>4.3.10.Final</hibernate.version>
 		<apache.dbcp.version>1.4</apache.dbcp.version>
+		<apache.lang.version>2.6</apache.lang.version>
 		<servlet.version>2.5</servlet.version>
 		<jsp.api.version>2.1</jsp.api.version>
 		<jstl.version>1.2</jstl.version>
@@ -30,14 +31,22 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
-		
+
 		<!-- Apache DBCP -->
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
 			<version>${apache.dbcp.version}</version>
 		</dependency>
-		
+
+		<!-- Apache Lang -->
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>${apache.lang.version}</version>
+		</dependency>
+
+
 		<!-- JSF -->
 		<dependency>
 			<groupId>com.sun.faces</groupId>
@@ -50,30 +59,30 @@
 			<artifactId>jsf-impl</artifactId>
 			<version>${jsf.version}</version>
 		</dependency>
-		
+
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>${servlet.version}</version>
 			<scope>provided</scope>
-		</dependency>		
-		
+		</dependency>
+
 		<!-- JSTL -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>${jstl.version}</version>
 		</dependency>
-		
+
 		<!-- JSP API -->
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
 			<version>${jsp.api.version}</version>
 		</dependency>
-		
-		<!-- EL - OBS: Specific for tomcat deployments -->		
+
+		<!-- EL - OBS: Specific for tomcat deployments -->
 		<dependency>
 			<groupId>org.glassfish.web</groupId>
 			<artifactId>el-impl</artifactId>
@@ -88,7 +97,7 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- SLF4J -->		
+		<!-- SLF4J -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
@@ -100,7 +109,7 @@
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc6</artifactId>
 			<version>${oracle.driver.version}</version>
-		</dependency>		
+		</dependency>
 
 		<!-- JUnit -->
 		<dependency>
@@ -145,5 +154,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 </project>

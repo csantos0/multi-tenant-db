@@ -12,32 +12,37 @@ import javax.servlet.http.HttpSession;
 /**
  * @author cvs
  * @create Jul 7, 2015
+ * 
+ *         Authorization Filter to check if there is a user logged
  */
 public class AuthorizationFilter implements Filter {
 
-    /**
-     * 
+    /*
+     * (non-Javadoc)
+     * @see javax.servlet.Filter#destroy()
      */
-    public AuthorizationFilter() {
-    }
-
     @Override
     public void destroy() {
-	// TO-DO
+	// Nothing to-do here
+
     }
 
+    /*
+     * (non-Javadoc)
+     * @see javax.servlet.Filter#doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)
+     */
     @Override
-    public void doFilter(final ServletRequest request, final ServletResponse response, final FilterChain chain) {
+    public void doFilter(final ServletRequest pRequest, final ServletResponse pResponse, final FilterChain pChain) {
 	try {
-	    final HttpServletRequest reqt = (HttpServletRequest) request;
-	    final HttpServletResponse resp = (HttpServletResponse) response;
+	    final HttpServletRequest reqt = (HttpServletRequest) pRequest;
+	    final HttpServletResponse resp = (HttpServletResponse) pResponse;
 	    final HttpSession ses = reqt.getSession(false);
 
 	    final String reqURI = reqt.getRequestURI();
 	    if (reqURI.indexOf("/login.xhtml") >= 0 || (ses != null && ses.getAttribute("username") != null)
 		    || reqURI.indexOf("/public/") >= 0 || reqURI.contains("javax.faces.resource"))
 	    {
-		chain.doFilter(request, response);
+		pChain.doFilter(pRequest, pResponse);
 	    } else {
 		resp.sendRedirect(reqt.getContextPath() + "/faces/login.xhtml");
 	    }
@@ -46,8 +51,13 @@ public class AuthorizationFilter implements Filter {
 	}
     }
 
+    /*
+     * (non-Javadoc)
+     * @see javax.servlet.Filter#init(javax.servlet.FilterConfig)
+     */
     @Override
-    public void init(final FilterConfig filterConfig) {
-	// TO-DO
+    public void init(final FilterConfig pFilterConfig) {
+	// Nothing to-do here
+
     }
 }

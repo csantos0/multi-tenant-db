@@ -9,13 +9,15 @@ import br.com.synchro.domain.ModeloDof;
 /**
  * @author cvs
  * @create Jul 15, 2015
+ * 
+ *         Simple Service implementation for Modelo operations
  */
 public class ModeloServiceImpl implements ModeloService {
 
     private ModeloDao modeloDao;
 
     /**
-     * 
+     * Default Constructor to instantiate attributes
      */
     public ModeloServiceImpl() {
 	this.modeloDao = new ModeloDaoImpl();

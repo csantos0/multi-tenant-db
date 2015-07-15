@@ -1,6 +1,3 @@
-/**
- * 
- */
 package br.com.synchro.domain;
 
 import java.io.Serializable;
@@ -14,6 +11,8 @@ import javax.persistence.Table;
  * 
  * @author cvs
  * @create Jan 16, 2015
+ * 
+ *         ModeloDof domain class used by tenants
  */
 @Entity
 @Table(name = "COR_MODELO_DOF")
