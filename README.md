@@ -4,7 +4,7 @@
 
 Proof-of-Concept with the goal to provide a Multi Tenant Architecture using Hibernate.
 
-# Use Cases Scenarios
+## Use Cases Scenarios
 
 1. Create a Custom Connection Pool for each tenant and make them available to hibernate;
 2. Users log in the application and depending of their Organization the correct tenant will be loaded and select a suitable connection.
