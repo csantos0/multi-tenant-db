@@ -10,8 +10,13 @@ package br.com.synchro.hibernate.util;
 public enum TenantDatabase {
 
     /**
-     * Schema Default usado pelo hibernate no momento que a aplicacao inicializa
+     * Main Tenant for the application
      */
-    GENERAL;
+    MAIN,
+
+    /**
+     * Prefix used to call tenants after the setup
+     */
+    TENANT;
 
 }

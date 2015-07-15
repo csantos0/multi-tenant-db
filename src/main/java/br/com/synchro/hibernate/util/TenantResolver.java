@@ -42,7 +42,7 @@ public class TenantResolver {
     public static String get() {
 	final String var1 = map.get(FacesUtil.getSessionId());
 	if (var1 == null) {
-	    return TenantDatabase.GENERAL.name();
+	    return TenantDatabase.MAIN.name();
 	}
 	return var1;
     }

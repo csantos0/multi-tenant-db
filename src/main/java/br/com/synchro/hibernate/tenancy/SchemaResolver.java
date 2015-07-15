@@ -1,6 +1,3 @@
-/**
- * 
- */
 package br.com.synchro.hibernate.tenancy;
 
 /**

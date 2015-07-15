@@ -47,7 +47,7 @@ public class DatabaseMultiTenantConnectionProvider extends AbstractMultiTenantCo
 		tcd.setInitialSize(Integer.parseInt(this.properties.getProperty("multitenant.shared.initialSize")));
 		tcd.setMaxActive(Integer.parseInt(this.properties.getProperty("multitenant.shared.maxActive")));
 
-		tcd.setTenantName(this.properties.getProperty("multitenant.tenant" + i + ".name"));
+		tcd.setTenantName(TenantDatabase.TENANT.name() + i);
 		tcd.setUrl(this.properties.getProperty("multitenant.tenant" + i + ".url"));
 		tcd.setUsername(this.properties.getProperty("multitenant.tenant" + i + ".user"));
 		tcd.setPassword(this.properties.getProperty("multitenant.tenant" + i + ".pass"));
@@ -78,7 +78,7 @@ public class DatabaseMultiTenantConnectionProvider extends AbstractMultiTenantCo
      * @return default connection provider
      */
     private ConnectionProvider getDefaultConnectionProvider() {
-	logger.info("Creating a new Default Connection Provider: " + TenantDatabase.GENERAL.name());
+	logger.info("Creating a new Default Connection Provider: " + TenantDatabase.MAIN.name());
 
 	if (this.defaultConnectionProvider == null) {
 	    final TenantConnectionData tcd = new TenantConnectionData();
@@ -87,7 +87,7 @@ public class DatabaseMultiTenantConnectionProvider extends AbstractMultiTenantCo
 	    tcd.setInitialSize(Integer.parseInt(this.properties.getProperty("multitenant.shared.initialSize")));
 	    tcd.setMaxActive(Integer.parseInt(this.properties.getProperty("multitenant.shared.maxActive")));
 
-	    tcd.setTenantName(TenantDatabase.GENERAL.name());
+	    tcd.setTenantName(TenantDatabase.MAIN.name());
 	    tcd.setUrl(this.properties.getProperty("multitenant.main.url"));
 	    tcd.setUsername(this.properties.getProperty("multitenant.main.user"));
 	    tcd.setPassword(this.properties.getProperty("multitenant.main.pass"));
@@ -109,7 +109,7 @@ public class DatabaseMultiTenantConnectionProvider extends AbstractMultiTenantCo
 	ConnectionProvider connectionProvider = this.connProviderMap.get(pTenantIdentifier);
 	if (connectionProvider == null) {
 	    logger.info("Connection Provider [" + pTenantIdentifier + "] not found. Default Tenant ["
-		    + TenantDatabase.GENERAL.name() + "] has been set.");
+		    + TenantDatabase.MAIN.name() + "] has been set.");
 
 	    connectionProvider = getDefaultConnectionProvider();
 	}

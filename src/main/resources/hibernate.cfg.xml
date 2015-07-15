@@ -19,7 +19,7 @@
 		<property name="format_sql">true</property>
 		<property name="use_sql_comments">false</property>
 
-		<!-- Main Domain Mappings - General -->
+		<!-- Main Domain Mappings - Main -->
 		<mapping class="br.com.synchro.domain.User" />
 		<mapping class="br.com.synchro.domain.Organization" />		
 		<mapping class="br.com.synchro.domain.OrgTenant" />

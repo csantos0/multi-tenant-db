@@ -96,7 +96,7 @@ public class LoginBean implements Serializable {
     public String validateUsernamePassword() {
 	final User userRes = this.loginService.doLogin(user, pwd);
 
-	if (user != null) {
+	if (userRes != null) {
 	    final HttpSession session = FacesUtil.getSession();
 	    session.setAttribute("username", user);
 	    this.setOrgId(userRes.getOrganization().getId() + "");
