@@ -1,4 +1,4 @@
-# Multi Tenant Database Approach (multi-tenant-db)
+# Multi Tenant Architecture - Database Approach
 
 ## Objective
 
