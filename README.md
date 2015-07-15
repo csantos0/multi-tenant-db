@@ -29,8 +29,8 @@ Proof-of-Concept with the goal to provide a Multi Tenant Architecture using Hibe
 4. Clone this project to your local git.
 
 5. Open a terminal and follow one of these approaches:
-    i. Run "mvn clean install" to generate the WAR package to be deployed and copy to the application server;
-	ii. If you have a tomcat installation, change the tomcat settings for your configuration in /pom.xml and run "clean install tomcat:deploy" (Tomcat must be started);
+ i. Run "mvn clean install" to generate the WAR package to be deployed and copy to the application server;
+ ii. If you have a tomcat installation, change the tomcat settings for your configuration in /pom.xml and run "clean install tomcat:deploy" (Tomcat must be started);
 6. Access, http://app-server-host:app-server-port/multi-tenant-db.
 7. Try out with multiple users, organizations and tenants.
 
