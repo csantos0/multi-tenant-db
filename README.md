@@ -1,5 +1,5 @@
 # Multi Tenant Architecture 
-## Database Approach
+***Database Approach***
 
 ### Objective
 
